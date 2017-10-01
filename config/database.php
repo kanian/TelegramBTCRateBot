@@ -3,14 +3,16 @@
   * Are we in AWS? If so... 
   * 
   */
-if (!(filter_input(INPUT_SERVER, 'RDS_HOSTNAME') == NULL) && !defined('RDS_HOSTNAME')) {
+if (!(filter_input(INPUT_SERVER, 'RDS_HOSTNAME') == NULL) ) {
   define('HOSTNAME', filter_input(INPUT_SERVER, 'RDS_HOSTNAME'));
+  define('DB_PORT', filter_input(INPUT_SERVER, 'RDS_PORT'));
   define('USERNAME', filter_input(INPUT_SERVER, 'RDS_USERNAME'));
   define('PASSWORD', filter_input(INPUT_SERVER, 'RDS_PASSWORD'));
   define('DB_NAME', filter_input(INPUT_SERVER, 'RDS_DB_NAME'));
 }
 else{
   define('HOSTNAME', env('DB_HOST', '127.0.0.1'));
+  define('DB_PORT', env('DB_PORT', '3306'));
   define('USERNAME', env('DB_USERNAME', 'btcratebot'));
   define('PASSWORD', env('DB_PASSWORD', 'btcratebot'));
   define('DB_NAME', env('DB_NAME', 'btcratebot'));
@@ -57,11 +59,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', HOSTNAME),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', DB_NAME),
-            'username' => env('DB_USERNAME', USERNAME),
-            'password' => env('DB_PASSWORD', PASSWORD),
+            'host' => HOSTNAME,
+            'port' => DB_PORT,
+            'database' => DB_NAME,
+            'username' => USERNAME,
+            'password' => PASSWORD,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
