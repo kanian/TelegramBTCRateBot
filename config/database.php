@@ -1,5 +1,14 @@
 <?php
-
+ /*
+  * Are we in AWS? If so... 
+  * 
+  */
+if (!defined('RDS_HOSTNAME')) {
+  define('RDS_HOSTNAME', filter_input(INPUT_SERVER, 'RDS_HOSTNAME'));
+  define('RDS_USERNAME', filter_input(INPUT_SERVER, 'RDS_USERNAME'));
+  define('RDS_PASSWORD', filter_input(INPUT_SERVER, 'RDS_PASSWORD'));
+  define('RDS_DB_NAME', filter_input(INPUT_SERVER, 'RDS_DB_NAME'));
+}
 return [
 
     /*
