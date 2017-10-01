@@ -57,6 +57,7 @@ $response = $kernel->handle(
 if(DB::connection()->getDatabaseName())
 {
    echo "Connected to database ".DB::connection()->getDatabaseName();
+   echo "App name is ".env('APP_NAME');
 }
 $response->send();
 
