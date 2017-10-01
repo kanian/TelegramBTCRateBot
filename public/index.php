@@ -1,5 +1,5 @@
 <?php
-
+use Artisan;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -54,6 +54,8 @@ $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
+Artisan::call('migrate', array('--path' => 'app/migrations', '--force' => true));
+
 if(DB::connection()->getDatabaseName())
 {
    echo "Connected to database ".DB::connection()->getDatabaseName();
