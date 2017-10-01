@@ -1,5 +1,9 @@
 <?php
+if(!defined('HTTP_HOST')){
+    //HTTP_HOST
 
+    define('HTTP_HOST', filter_input(INPUT_SERVER, 'HTTP_HOST'));
+}
 return [
 
     /*
