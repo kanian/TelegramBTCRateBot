@@ -3,12 +3,19 @@
   * Are we in AWS? If so... 
   * 
   */
-if (!defined('RDS_HOSTNAME')) {
-  define('RDS_HOSTNAME', filter_input(INPUT_SERVER, 'RDS_HOSTNAME'));
-  define('RDS_USERNAME', filter_input(INPUT_SERVER, 'RDS_USERNAME'));
-  define('RDS_PASSWORD', filter_input(INPUT_SERVER, 'RDS_PASSWORD'));
-  define('RDS_DB_NAME', filter_input(INPUT_SERVER, 'RDS_DB_NAME'));
+if (!(filter_input(INPUT_SERVER, 'RDS_HOSTNAME') == NULL) && !defined('RDS_HOSTNAME')) {
+  define('HOSTNAME', filter_input(INPUT_SERVER, 'RDS_HOSTNAME'));
+  define('USERNAME', filter_input(INPUT_SERVER, 'RDS_USERNAME'));
+  define('PASSWORD', filter_input(INPUT_SERVER, 'RDS_PASSWORD'));
+  define('DB_NAME', filter_input(INPUT_SERVER, 'RDS_DB_NAME'));
 }
+else{
+  define('HOSTNAME', env('DB_HOST', '127.0.0.1'));
+  define('USERNAME', env('DB_USERNAME', 'btcratebot'));
+  define('PASSWORD', env('DB_PASSWORD', 'btcratebot'));
+  define('DB_NAME', env('DB_NAME', 'btcratebot'));
+}
+
 return [
 
     /*
@@ -50,11 +57,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', HOSTNAME),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', DB_NAME),
+            'username' => env('DB_USERNAME', USERNAME),
+            'password' => env('DB_PASSWORD', PASSWORD),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
