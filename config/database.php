@@ -3,20 +3,13 @@
   * Are we in AWS? If so... 
   * 
   */
-if (!(filter_input(INPUT_SERVER, 'RDS_HOSTNAME') == NULL) ) {
-  define('HOSTNAME', filter_input(INPUT_SERVER, 'RDS_HOSTNAME'));
-  define('DB_PORT', filter_input(INPUT_SERVER, 'RDS_PORT'));
-  define('USERNAME', filter_input(INPUT_SERVER, 'RDS_USERNAME'));
-  define('PASSWORD', filter_input(INPUT_SERVER, 'RDS_PASSWORD'));
-  define('DB_NAME', filter_input(INPUT_SERVER, 'RDS_DB_NAME'));
-}
-else{
+
   define('HOSTNAME', env('DB_HOST', '127.0.0.1'));
   define('DB_PORT', env('DB_PORT', '3306'));
-  define('USERNAME', env('DB_USERNAME', 'btcratebot'));
-  define('PASSWORD', env('DB_PASSWORD', 'btcratebot'));
+  define('USERNAME', env('DB_USERNAME', 'root'));
+  define('PASSWORD', env('DB_PASSWORD', 'Ehouman123'));
   define('DB_NAME', env('DB_NAME', 'btcratebot'));
-}
+
 
 return [
 
