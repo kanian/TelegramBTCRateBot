@@ -43,5 +43,10 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Adapters\TelegramBotApiAdapter();
         });
+        
+        $this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
+        {
+            return new \App\Adapters\TelegramManualUpdateAdapter();
+        });
     }
 }

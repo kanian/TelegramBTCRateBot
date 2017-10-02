@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!
-                    <p>{{$setwebhookurl}}</p>
+                    
                    
                 </div>
             </div>

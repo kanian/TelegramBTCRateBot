@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $setwebhookurl = 'https://'.HTTP_HOST.WEBHOOK_ROUTE;
-        return view('home' ,['setwebhookurl'=>$setwebhookurl]);
+        return view('home');
     }
 }
