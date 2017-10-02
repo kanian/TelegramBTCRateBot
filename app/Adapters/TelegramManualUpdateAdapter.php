@@ -16,8 +16,8 @@ namespace App\Adapters;
 class TelegramManualUpdateAdapter {
     
     private  $_telegram = NULL;
-    public function __construct(\App\Adapters\TelegramBotApiAdapter $telegram) {
-        $this->_telegram = $telegram;
+    public function __construct() {
+        $this->_telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
     }
     
     public function getUpdates(){

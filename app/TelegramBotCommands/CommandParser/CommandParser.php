@@ -14,5 +14,13 @@ namespace Vendor\App\Commands\CommandParsers;
  * @author Patrick Assoa Adou (patrick.assoa.adou@gmail.com)
  */
 class CommandParser {
-    //put your code here
+    
+    public function __construct(string $command){
+        
+        $parts = explode(" ",$command);
+        switch($parts[0]){
+            case "/start":
+                
+        }
+    }
 }
