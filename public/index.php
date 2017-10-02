@@ -1,5 +1,4 @@
 <?php
-use DB;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -56,11 +55,7 @@ $response = $kernel->handle(
 );
 
 
-if(DB::connection()->getDatabaseName())
-{
-   echo "Connected to database ".DB::connection()->getDatabaseName();
-   echo "\n".HOSTNAME;
-}
+
 $response->send();
 
 $kernel->terminate($request, $response);
