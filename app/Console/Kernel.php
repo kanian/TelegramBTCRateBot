@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            app('App\Adapters\TelegramWebHookAdapter')->getUpdates();
+            app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
         })->everyMinute();
     }
 
