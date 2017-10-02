@@ -57,10 +57,10 @@ define('WEBHOOK_ROUTE','/'.env('TELEGRAM_BOT_TOKEN').'/webhook');
 
 $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
 // We are supplying a self-signed-certificate
-$response = $telegram->setWebhook([
+/*$response = $telegram->setWebhook([
         'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
         'certificate' => './btcratebot.crt'
-        ]);
+        ]);*/
 
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()

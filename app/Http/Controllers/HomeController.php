@@ -32,6 +32,7 @@ class HomeController extends Controller
         //$botId = $response->getId();
         //$firstName = $response->getFirstName();
         //$username = $response->getUsername();
-        return view('home' /*,['botId'=>$botId, 'firstName' => $firstName, 'message_count'=>$message_count]*/);
+        $setwebhookurl = 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook';
+        return view('home' ,['setwebhookurl'=>$setwebhookurl]);
     }
 }
