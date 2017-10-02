@@ -1,5 +1,5 @@
 <?php
-use Artisan;
+use Illuminate\Support\Facades\DB;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -60,7 +60,6 @@ if(DB::connection()->getDatabaseName())
 {
    echo "Connected to database ".DB::connection()->getDatabaseName();
    echo "\n".HOSTNAME;
-   Artisan::call('migrate', array('--path' => 'app/migrations', '--force' => true));
 }
 $response->send();
 
