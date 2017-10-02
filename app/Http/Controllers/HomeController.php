@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $telegram = new Api('TELEGRAM_BOT_TOKEN');
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
         $response = $telegram->getMe();
 
         //$botId = $response->getId();
