@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!
-                    <p> Name is {{$firstName}} </p>
+                    
                    
                 </div>
             </div>
