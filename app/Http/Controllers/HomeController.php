@@ -30,6 +30,6 @@ class HomeController extends Controller
         $botId = $response->getId();
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
-        return view('home')->with(array('botId'=>$botId, '$firstName' => $firstName));
+        return view('home')->with(array('botId'=>$botId, 'firstName' => $firstName));
     }
 }
