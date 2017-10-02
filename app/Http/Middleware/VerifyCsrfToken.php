@@ -11,7 +11,8 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
+    protected $token = config('services.telegram.bot_token');
     protected $except = [
-        //
+        '/'.$token.'/webhook'
     ];
 }
