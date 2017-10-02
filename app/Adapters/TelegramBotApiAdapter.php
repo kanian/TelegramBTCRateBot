@@ -19,12 +19,12 @@ class TelegramBotApiAdapter {
     
     private static $api = NULL;
     public function __construct() {
-        if(TelegramBotApiAdapter::$api != NULL){
+        if(TelegramBotApiAdapter::$api == NULL){
             TelegramBotApiAdapter::$api = new Api(TELEGRAM_BOT_TOKEN);            
         }
     }
     
     public function Instance(){
-        return TelegramBotApiAdapter::api;
+        return TelegramBotApiAdapter::$api;
     }
 }
