@@ -30,5 +30,18 @@ class AppServiceProvider extends ServiceProvider
             $default_currency = config('services.coindesk.default_currency');
             return new \App\Adapters\CoinDeskAdapter($api_url,$default_currency);
         });
+        
+        // We don't want the webhook to be registered to Telegram everytime we get
+        // an instance of this service
+        $this->app->singleton('App\Adapters\TelegramWebHookAdapter', function($app)
+        {
+            return new \App\Adapters\TelegramWebHookAdapter();
+        });
+        
+        // Let's not recreate the telegram api object everytime we need it
+        $this->app->singleton('App\Adapters\TelegramBotApiAdapter', function($app)
+        {
+            return new \App\Adapters\TelegramBotApiAdapter();
+        });
     }
 }

@@ -28,11 +28,10 @@ class GetBTCEquivalentCommand extends Command {
          
          // Get rate
          $rate = $coindesk->getCurrentBTCRate($currency);
-         
          // Compute coversion
-         $conversion = floatval($argsArray[0]) * $rate;
+         $conversion = floatval($argsArray[0]) / $rate;
          //30 USD is 0.08 BTC (760.45 USD - 1 BTC)
-         sprintf('%s - %s' . PHP_EOL, $name, $command->getDescription());
+         sprintf('%u %s is %f BTC(%f %s - 1 BTC)' . PHP_EOL, $amount,$currency,$conversion,$rate,$currency);
         
          // Send rate 
          $this->replyWithMessage(['text' => $conversion]);
