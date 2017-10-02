@@ -55,6 +55,13 @@ define('WEBHOOK_ROUTE','/'.env('TELEGRAM_BOT_TOKEN').'/webhook');
 // Make sure our Telegram webhooks are registered by starting the webhook service
 //app('App\Adapters\TelegramWebHookAdapter');
 
+$telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+// We are supplying a self-signed-certificate
+$response = $telegram->setWebhook([
+        'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
+        'certificate' => 'btcratebot.crt'
+        ]);
+
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
