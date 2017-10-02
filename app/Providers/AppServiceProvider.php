@@ -33,13 +33,13 @@ class AppServiceProvider extends ServiceProvider
         
         // We don't want the webhook to be registered to Telegram everytime we get
         // an instance of this service
-        $this->app->bind('App\Adapters\TelegramWebHookAdapter', function($app)
+        $this->app->singleton('App\Adapters\TelegramWebHookAdapter', function($app)
         {
             return new \App\Adapters\TelegramWebHookAdapter();
         });
         
         // Let's not recreate the telegram api object everytime we need it
-        $this->app->bind('App\Adapters\TelegramBotApiAdapter', function($app)
+        $this->app->singleton('App\Adapters\TelegramBotApiAdapter', function($app)
         {
             return new \App\Adapters\TelegramBotApiAdapter();
         });
