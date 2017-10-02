@@ -26,10 +26,11 @@ class HomeController extends Controller
     {
         $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
         $response = $telegram->getMe();
-
+        $updates = $telegram->getUpdates();
+        $message_count = count($updates);
         $botId = $response->getId();
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
-        return view('home', ['botId'=>$botId, 'firstName' => $firstName]);
+        return view('home', ['botId'=>$botId, 'firstName' => $firstName, 'message_count'=>$message_count]);
     }
 }

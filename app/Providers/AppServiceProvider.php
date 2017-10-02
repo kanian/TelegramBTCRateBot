@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Adapters\CoinDeskAdapter', function($app)
+        {
+            $api_url = config('services.coindesk.api_url');
+            $default_currency = config('services.coindesk.default_currency');
+            return new \App\Adapters\CoinDeskAdapter($api_url,$default_currency);
+        });
     }
 }

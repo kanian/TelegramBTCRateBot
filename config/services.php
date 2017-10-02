@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'coindesk' => [
+        'api_url' => 'https://api.coindesk.com/v1/bpi/',
+        'default_currency' => 'USD',
+    ],
 
 ];

@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/'.config('services.telegram.bot_token').'/webhook', function () {
+    $update = Telegram::commandsHandler(true);
+	
+	// Commands handler method returns an Update object.
+	// So you can further process $update object 
+	// to however you want.
+	
+    return 'ok';
+});
