@@ -8,6 +8,8 @@
 
 namespace App\Adapters;
 
+use Telegram\Bot\Api;
+
 /**
  * Description of TelegramBotApiAdapter
  *
@@ -17,7 +19,7 @@ class TelegramBotApiAdapter {
     
     private $api;
     public function __construct() {
-        $this->api = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $this->api = new Api(TELEGRAM_BOT_TOKEN);
     }
     
     public function Instance(){

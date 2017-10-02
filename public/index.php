@@ -6,6 +6,9 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+// There are some constants that we need now in order to start our services
+require __DIR__.'/../bootstrap/bootstrap_config.php';
+
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -50,23 +53,12 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-define('WEBHOOK_ROUTE','/'.env('TELEGRAM_BOT_TOKEN').'/webhook');
-
 // Make sure our Telegram webhooks are registered by starting the webhook service
-//app('App\Adapters\TelegramWebHookAdapter');
-
-$telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
-// We are supplying a self-signed-certificate
-/*$response = $telegram->setWebhook([
-        'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
-        'certificate' => './btcratebot.crt'
-        ]);*/
+app('App\Adapters\TelegramWebHookAdapter');
 
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
-
-
 
 $response->send();
 
