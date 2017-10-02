@@ -11,13 +11,19 @@ use Telegram\Bot\Api;
  */
 class TelegramWebHookAdapter {
     
+    public static $webhook_is_set = false;
+    
     public function __construct() {
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         //$telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
         // We are supplying a self-signed-certificate
-        $response = $telegram->setWebhook([
+        if(!TelegramWebHookAdapter::$webhook_is_set){
+          $response = $telegram->setWebhook([
           'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
-          'certificate' => 'btcratebot.crt'
+          'certificate' => '/etc/ssl/crt/btcratebot.crt'
         ]);
+          TelegramWebHookAdapter::$webhook_is_set= true;
+        } 
+        
     }
 }

@@ -17,12 +17,14 @@ use Telegram\Bot\Api;
  */
 class TelegramBotApiAdapter {
     
-    private $api;
+    private static $api = NULL;
     public function __construct() {
-        $this->api = new Api(TELEGRAM_BOT_TOKEN);
+        if(TelegramBotApiAdapter::$api != NULL){
+            TelegramBotApiAdapter::$api = new Api(TELEGRAM_BOT_TOKEN);            
+        }
     }
     
     public function Instance(){
-        return $this->api;
+        return TelegramBotApiAdapter::api;
     }
 }
