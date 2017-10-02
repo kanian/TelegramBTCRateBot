@@ -25,11 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         $telegram = new Api('TELEGRAM_BOT_TOKEN');
-        $response = $telegram->getMe();
+        //$response = $telegram->getMe();
 
-        $botId = $response->getId();
-        $firstName = $response->getFirstName();
-        $username = $response->getUsername();
-        return view('home')->with(array('botId'=>$botId, '$firstName' => $firstName));
+        //$botId = $response->getId();
+        //$firstName = $response->getFirstName();
+        //$username = $response->getUsername();
+        return view('home')/*->with(array('botId'=>$botId, '$firstName' => $firstName))*/;
     }
 }
