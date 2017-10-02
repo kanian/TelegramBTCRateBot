@@ -16,7 +16,7 @@
 
                     You are logged in!
                     <p> Name is {{$firstName}} </p>
-                    <p> You have {{$message_count}} update(s) </p>
+                   
                 </div>
             </div>
         </div>

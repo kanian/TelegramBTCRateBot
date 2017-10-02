@@ -24,13 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        //$telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         $response = $telegram->getMe();
-        $updates = $telegram->getUpdates();
-        $message_count = count($updates);
+        //$updates = $telegram->getUpdates();
+        //$message_count = count($updates);
         $botId = $response->getId();
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
-        return view('home', ['botId'=>$botId, 'firstName' => $firstName, 'message_count'=>$message_count]);
+        return view('home', ['botId'=>$botId, 'firstName' => $firstName, /*'message_count'=>$message_count*/]);
     }
 }
