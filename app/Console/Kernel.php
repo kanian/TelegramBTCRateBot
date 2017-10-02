@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Inspire::class,
+        '\App\Console\Commands\TelegramManualUpdateCronJob'
     ];
 
     /**
@@ -24,9 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
-        })->everyMinute();
+        $schedule->command('TelegramManualUpdate:update')
+                 ->everyMinute();
     }
 
     /**
