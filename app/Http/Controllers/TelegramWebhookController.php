@@ -26,7 +26,8 @@ class TelegramWebhookController extends Controller {
      */
     public function process(){
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
-        $update = $telegram->getWebhookUpdates();
+        //$update = $telegram->getWebhookUpdates();
+        $update = $telegram->commandsHandler(true);
         
             // Commands handler method returns an Update object.
             // So you can further process $update object 
