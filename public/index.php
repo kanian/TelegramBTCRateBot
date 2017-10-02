@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Support\Facades\DB;
+use DB;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
