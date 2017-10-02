@@ -14,9 +14,9 @@ class TelegramWebHookAdapter {
     public function __construct() {
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         // We are supplying a self-signed-certificate
-        $response = $telegram->setWebhook([
-          'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
-          'certificate' => 'btcratebot.crt'
-        ]);
+        //$response = $telegram->setWebhook([
+        //  'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
+        //  'certificate' => 'btcratebot.crt'
+        //]);
     }
 }
