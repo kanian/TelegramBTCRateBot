@@ -54,12 +54,13 @@ $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
-Artisan::call('migrate', array('--path' => 'app/migrations', '--force' => true));
+
 
 if(DB::connection()->getDatabaseName())
 {
    echo "Connected to database ".DB::connection()->getDatabaseName();
    echo "\n".HOSTNAME;
+   Artisan::call('migrate', array('--path' => 'app/migrations', '--force' => true));
 }
 $response->send();
 
