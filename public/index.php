@@ -54,7 +54,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 // Make sure our Telegram webhooks are registered by starting the webhook service
-app('App\Adapters\TelegramWebHookAdapter');
+//app('App\Adapters\TelegramWebHookAdapter');
 
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
