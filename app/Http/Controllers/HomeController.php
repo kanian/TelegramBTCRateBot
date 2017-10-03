@@ -24,31 +24,45 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
+        app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
-        $update = $telegram->getUpdates();
-        print_r(count($update)) . '\n';
+        $updates = $telegram->getUpdates();
+        print_r($updates) . '\n';
         
-        print_r($update[0]->getMessage()->get('entities'));
-        for($i = 0;$i< count($update);$i++){
-            if($update[$i]->has('message') && $update[$i]->get('message')->has('entities')){
-                $message = $update[$i]->get('message');
-                $this->processCommand($message);
+        print_r($updates[0]->getMessage()->get('entities'));
+        for($i = 0;$i< count($updates);$i++){
+            if($updates[$i]->has('message') && $updates[$i]->get('message')->has('entities')){
+                
+                $this->processCommand($updates[$i]);
             }
             
         }
+        /*foreach ($updates as $update) {
+            $highestId = $update->getUpdateId();
+            $telegram->processCommand($update);
+        }
+        //An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id.
+        if ($highestId != -1) {
+            $params = [];
+            $params['offset'] = $highestId + 1;
+            $params['limit'] = 1;
+            $telegram->getUpdates($params);
+        }*/
         return view('home');
     }
     
-    private function processCommand($message) : bool{
+    private function processCommand($update) : bool{
+        $message = $update->get('message');
         $parts = explode(" ",$message->get('text'));
-        print_r($parts); echo '\n';
+        
         //print_r($message->get('chat')->get('id'));
         switch($parts[0]){
             case '/start':
                 
-                $command  = app('App\Commands\StartCommand');
-                $command->handle($message->get('chat')->get('id'));
+                app('App\Commands\StartCommand')
+                    ->setUpdate($update)
+                    ->handle($message->get('chat')->get('id'));
+                
                 break;
             case '/getBTCEquivalent':
                 break;

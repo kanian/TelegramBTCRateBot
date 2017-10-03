@@ -19,8 +19,15 @@ class CommandBusAdapter {
     public function __construct() {
         if(CommandBusAdapter::$command_bus == NULL){
             CommandBusAdapter::$command_bus = new CommandBus(app('App\Adapters\TelegramBotApiAdapter')->Instance());    
-            
+            CommandBusAdapter::$command_bus->addCommands(
+                    [
+                        \Telegram\Bot\Commands\HelpCommand::class,
+                        \App\Commands\StartCommand::class,
+                        \App\Commands\GetBTCEquivalentCommand::class,
+                    ]
+                    );
         }
+        
     }
     
     public function Instance(){

@@ -52,7 +52,7 @@ class Command {
      * @return mixed
      */
     protected  function getCommandBus(){
-        return $_command_bus;
+        return $this->_command_bus;
     }
     
     public function jsonPostRequest($action, $parameters) {
