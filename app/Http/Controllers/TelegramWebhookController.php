@@ -24,7 +24,9 @@ class TelegramWebhookController extends Controller {
      * 
      * @return \Illuminate\Http\Response 
      */
-    public function process(){
+    public function process($token){
+        if($token !== TELEGRAM_BOT_TOKEN)
+            return 'false';
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         //$update = $telegram->getWebhookUpdates();
         $update = $telegram->commandsHandler(true);
