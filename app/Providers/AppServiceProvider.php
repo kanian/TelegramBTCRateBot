@@ -44,15 +44,18 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Adapters\TelegramBotApiAdapter();
         });
-        
+        $this->app->singleton('App\Adapters\CommandBusAdapter', function($app)
+        {
+            return new \App\Adapters\CommandBusAdapter();
+        });
         $this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
         {
             return new \App\Adapters\TelegramManualUpdateAdapter();
         });
-        
-        $this->app->singleton('Vendor\App\Commands\StartCommand', function($app)
+        $this->app->singleton('App\Commands\StartCommand', function($app)
         {
             return new \App\Commands\StartCommand();
         });
+        
     }
 }

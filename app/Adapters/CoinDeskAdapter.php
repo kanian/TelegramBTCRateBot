@@ -27,8 +27,9 @@ class CoinDeskAdapter {
         $_currency = ($currency == NULL) ? $this->default_currency : $currency;
         // Format is http://[api_url]/currentprice/[currency_code].json
         $action = 'currentprice/'.$_currency.'.json';
+        $headers=  ['Accept'     => 'application/json',];
         // Make HTTP request
-        $response = $this->http_client->request('GET', $action);
+        $response = $this->http_client->request('GET', $action,$headers);
         // Parse HTTP response
         if($response->isSuccessful()){
             $parsedResponse = new CoinDeskServiceConversionResponse($response->getBody());
