@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
+        //app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
         return view('home');
     }
 }
