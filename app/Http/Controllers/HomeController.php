@@ -28,7 +28,7 @@ class HomeController extends Controller
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         $update = $telegram->getUpdates();
         print_r(count($update)) . '\n';
-        print_r($update[14]);
+        print_r($update[0]);
         /*for($i = 0;$i< count($update);$i++){
             
         }*/
