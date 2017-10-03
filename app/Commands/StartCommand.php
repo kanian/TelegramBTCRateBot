@@ -40,7 +40,7 @@ class StartCommand extends TelegramBotCommand {
             //'chat_id' => $chat_id])
             ]);
         } catch (GuzzleHttp\Exception\ClientException $ex) {
-            //do nothing ehre, for now... Telegram keeps saying no chat_id is present, when it still processes
+            //do nothing here, for now... Telegram keeps saying no chat_id is present, when it still processes
             //our sendMessahe 
         }
         

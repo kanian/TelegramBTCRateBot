@@ -2,6 +2,7 @@
 namespace App\Adapters;
 
 use GuzzleHttp\Client;
+use App\Adapters\ServiceResponses\CoinDeskServiceConversionResponse;
 /**
  * Description of CoinDeskService
  *
@@ -31,8 +32,8 @@ class CoinDeskAdapter {
         // Make HTTP request
         $response = $this->http_client->request('GET', $action,$headers);
         // Parse HTTP response
-        if($response->isSuccessful()){
-            $parsedResponse = new CoinDeskServiceConversionResponse($response->getBody());
+        if($response->getStatusCode() == '200'){
+            $parsedResponse = new CoinDeskServiceConversionResponse($response->getBody()->getContents());
             // Get the BTC rate to the currency
             return $parsedResponse->getBTCRate($currency);
         } else{

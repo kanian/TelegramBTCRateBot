@@ -13,8 +13,14 @@ class CoinDeskServiceConversionResponse extends CoinDeskServiceResponse {
     }
     
     public function getBTCRate(string $currency) : float{
-        if($this->getResponse() !== NULL && $this->getResponse() !== false){
-           $this->getResponse()[$currency]->rate_float; 
+        $response = $this->getResponse();
+        if($response !== NULL && $response !== false){
+            
+            if($currency === 'USD'){
+                return $response['bpi']['USD']['rate_float']; 
+            }
+            
+           return $response[sprintf('%s', $currency )]['rate_float']; 
         } else{
             // Request failed 
             return -1.0;

@@ -11,14 +11,14 @@ class CoinDeskServiceResponse {
     private $parsedResponse = false;
     
     private function parseJSONResponse(string $jsonResponseString){
-       $this->parsedResponse =  json_decode(jsonResponseString,true);
+       $this->parsedResponse =  json_decode($jsonResponseString,true);
     }
     
     public function __construct(string $jsonResponseString) {
-        parseJSONResponse($jsonResponseString);
+        $this->parseJSONResponse($jsonResponseString);
     }
     
     public function getResponse() {
-        return $parsedResponse;
+        return $this->parsedResponse;
     }
 }

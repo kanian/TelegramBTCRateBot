@@ -27,9 +27,9 @@ class HomeController extends Controller
         app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         $updates = $telegram->getUpdates();
-        print_r($updates) . '\n';
+        //print_r($updates) . '\n';
         
-        print_r($updates[0]->getMessage()->get('entities'));
+        //print_r($updates[0]->getMessage()->get('entities'));
         for($i = 0;$i< count($updates);$i++){
             if($updates[$i]->has('message') && $updates[$i]->get('message')->has('entities')){
                 
@@ -57,14 +57,17 @@ class HomeController extends Controller
         
         //print_r($message->get('chat')->get('id'));
         switch($parts[0]){
-            case '/start':
-                
+            case '/start':    
                 app('App\Commands\StartCommand')
                     ->setUpdate($update)
                     ->handle($message->get('chat')->get('id'));
                 
                 break;
             case '/getBTCEquivalent':
+                $params = array_splice($parts,1);
+                app('App\Commands\GetBTCEquivalentCommand')
+                    ->setUpdate($update)
+                    ->handle($params); //make sure required data is passed
                 break;
             default:
                 return false;
