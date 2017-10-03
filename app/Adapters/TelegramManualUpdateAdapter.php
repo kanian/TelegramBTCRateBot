@@ -22,8 +22,8 @@ class TelegramManualUpdateAdapter {
     
     public function getUpdates(){
         $updates = $this->_telegram->getUpdates();
-        
-        $startCmd = app('Vendor\App\Commands\StartCommand');
-        $startCmd->handle("");
+        return $updates;
+        //$startCmd = app('App\Commands\StartCommand');
+        //$startCmd->handle("");
     }
 }

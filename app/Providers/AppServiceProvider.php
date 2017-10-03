@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
         
         $this->app->singleton('Vendor\App\Commands\StartCommand', function($app)
         {
-            return new \Vendor\App\Commands\StartCommand();
+            return new \App\Commands\StartCommand();
         });
     }
 }

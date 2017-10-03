@@ -57,7 +57,7 @@ return [
     */
     'commands' => [
         Telegram\Bot\Commands\HelpCommand::class,
-        Telegram\Bot\Commands\StartCommand::class,
-        Telegram\Bot\Commands\GetBTCEquivalentCommand::class,
+        App\Commands\StartCommand::class,
+        App\Commands\GetBTCEquivalentCommand::class,
     ],
 ];

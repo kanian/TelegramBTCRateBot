@@ -1,5 +1,5 @@
 <?php
-namespace Vendor\App\Commands;
+namespace App\Commands;
 
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
@@ -20,8 +20,11 @@ class StartCommand extends Command {
      */
     protected $description = "TelegramBTCRateBot start command";
     
+    
+    
     public function handle($arguments)
     {
+        $this->telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         // This will send a message using `sendMessage` method behind the scenes to
         // the user/chat id who triggered this command.
         // `replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()` all the available methods are dynamically
