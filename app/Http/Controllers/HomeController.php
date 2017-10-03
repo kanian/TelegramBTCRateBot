@@ -25,6 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         //app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
+        $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
+        print_r($telegram->commandsHandler(true));
         return view('home');
     }
 }
