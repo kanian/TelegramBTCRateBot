@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         //app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
-        $update = $telegram->commandsHandler(true);
+        $update = $telegram->getWebhookUpdates();
         print_r(count($update));
         return view('home');
     }
