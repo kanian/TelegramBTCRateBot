@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::post(WEBHOOK_ROUTE, 'TelegramWebhookController@process')->name('telegramwebhook');
+Route::post(WEBHOOK_ROUTE, 'TelegramWebhookController@process')->name('telegramwebhook');
+//Route::post('/450338970AAEw6b2YUpUIUSr72Cf8fuSVeqPq76cbDRo/webhook', 'TelegramWebhookController@process')->name('telegramwebhook');
+///450338970:AAEw6b2YUpUIUSr72Cf8fuSVeqPq76cbDRo/webhook

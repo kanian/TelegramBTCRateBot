@@ -16,7 +16,7 @@ namespace App\Http\Controllers;
 class TelegramWebhookController extends Controller {
     
     public function __construct(){
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     
     /**
