@@ -48,5 +48,10 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Adapters\TelegramManualUpdateAdapter();
         });
+        
+        $this->app->singleton('Vendor\App\Commands\StartCommand', function($app)
+        {
+            return new \Vendor\App\Commands\StartCommand();
+        });
     }
 }
