@@ -17,16 +17,13 @@ class TelegramWebHookAdapter {
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         $telegram->removeWebhook();
         // We are supplying a self-signed-certificate
-        /*
-        if(!TelegramWebHookAdapter::$webhook_is_set){
+        /*if(!TelegramWebHookAdapter::$webhook_is_set){
           $response = $telegram->setWebhook([
           'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
           'certificate' => '/etc/ssl/crt/btcratebot.crt'
         ]);
-         */
-         
           TelegramWebHookAdapter::$webhook_is_set= true;
-        } 
+        } */
         
     }
     
