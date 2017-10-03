@@ -43,16 +43,18 @@ class HomeController extends Controller
     private function processCommand($message) : bool{
         $parts = explode(" ",$message->get('text'));
         print_r($parts); echo '\n';
+        //print_r($message->get('chat')->get('id'));
         switch($parts[0]){
             case '/start':
                 
                 $command  = app('App\Commands\StartCommand');
-                $command->handle();
+                $command->handle($message->get('chat')->get('id'));
                 break;
             case '/getBTCEquivalent':
                 break;
             default:
                 return false;
         }
+        return false;
     }
 }

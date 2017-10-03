@@ -14,7 +14,6 @@ return [
     |
     */
     'bot_token' => env('TELEGRAM_BOT_TOKEN', '450338970:AAEw6b2YUpUIUSr72Cf8fuSVeqPq76cbDRo'),
-
     /*
     |--------------------------------------------------------------------------
     | Asynchronous Requests [Optional]

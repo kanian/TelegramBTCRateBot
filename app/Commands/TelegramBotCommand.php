@@ -20,14 +20,14 @@ class TelegramBotCommand extends Command {
     
     public function __construct(){
         $this->_telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
-        parent::__construct(HTTP_HOST);
+        parent::__construct(API_URL);
     }
     
     public function getTelegram(){
         return $_telegam;
     }
     public function replyWithMessage($params){
-        return $this->postRequest("sendMessage", $params);
+        return $this->jsonPostRequest("sendMessage", $params);
     }
     
     public function replyWithChatAction($params){

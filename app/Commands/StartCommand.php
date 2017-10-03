@@ -22,7 +22,7 @@ class StartCommand extends TelegramBotCommand {
     
     
     
-    public function handle()
+    public function handle(string $chat_id)
     {
         
         // This will send a message using `sendMessage` method behind the scenes to
@@ -31,7 +31,12 @@ class StartCommand extends TelegramBotCommand {
         // handled when you replace `send<Method>` with `replyWith` and use the same parameters - except chat_id does NOT need to be included in the array.
         
         
-        $this->replyWithMessage(['text' => 'Hi! I\'ll provide you with any BTC to any currency amount conversion; here are the available commands:']);
+        $this->replyWithMessage([
+            'text' => 'Hi! I\'ll provide you with any BTC to any currency amount conversion; here are the available commands:', 
+            //'chat_id' => $chat_id]);
+            'chat_id' => $chat_id
+            ]);
+            //patrick_telegram_btc_rate_bot
 
         // Update the chat status to typing...
         $this->replyWithChatAction(['action' => Actions::TYPING]);

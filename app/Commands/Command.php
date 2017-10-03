@@ -64,7 +64,7 @@ class Command {
           return false;
         }
         // Make HTTP request
-        $response = $this->http_client->post($action,[
+        $response = $this->http_client->post($this->api_url.$action,[
             'json' =>  $parameters
         ]);
         
@@ -80,7 +80,7 @@ class Command {
           return false;
         }
         // Make HTTP request
-        $response = $this->http_client->get($action,[
+        $response = $this->http_client->get($this->api_url.$action,[
             'query' =>  $parameters,
             'headers'=>  ['Accept'     => 'application/json',]
         ]);
@@ -97,7 +97,7 @@ class Command {
           return false;
         }
         // Make HTTP request
-        $response = $this->http_client->get($action,[
+        $response = $this->http_client->get($this->api_url.$action,[
             'query' =>  $parameters,
         ]);
         
@@ -112,8 +112,9 @@ class Command {
           error_log("Parameters must be an array\n");
           return false;
         }
+        //$this->http_client->request('GET', $action,$headers)
         // Make HTTP request
-        $response = $this->http_client->post($action,[
+        $response = $this->http_client->post($this->api_url.$action,[
             'form_params' =>  $parameters
         ]);
         
