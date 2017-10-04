@@ -20,7 +20,7 @@ class CoinDeskServiceConversionResponse extends CoinDeskServiceResponse {
                 return $response['bpi']['USD']['rate_float']; 
             }
             
-           return $response[sprintf('%s', $currency )]['rate_float']; 
+           return $response['bpi'][sprintf('%s', $currency )]['rate_float']; 
         } else{
             // Request failed 
             return -1.0;
