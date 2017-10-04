@@ -90,6 +90,10 @@ class HomeController extends Controller
                     ->setUpdate($update)
                     ->handle($params); //make sure required data is passed
                 break;
+            case '/getUserID':
+                app('App\Commands\GetUserIDCommand')
+                    ->setUpdate($update)
+                    ->handle($message->get('chat')->get('id')); //make sure required data is passed
             default:
                 return false;
         }

@@ -56,6 +56,9 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Commands\StartCommand();
         });
-        
+        $this->app->singleton('App\Commands\GetUserIDCommand', function($app)
+        {
+            return new \App\Commands\GetUserIDCommand();
+        });
     }
 }
