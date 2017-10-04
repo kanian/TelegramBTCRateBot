@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auto-complete.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -58,6 +59,9 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        <a href="{{ route('bot-config') }}">
+                                            Configure Bot
+                                        </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -75,6 +79,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
+    <script src="{{ asset('js/app.js') }}"></script>  
+    <script src="{{ asset('js/utils.js') }}"></script>
+    <script src="{{ asset('js/auto-complete.js') }}"></script>
+    <script src="{{ asset('js/initiate-auto-complete.js') }}"></script>
 </body>
 </html>

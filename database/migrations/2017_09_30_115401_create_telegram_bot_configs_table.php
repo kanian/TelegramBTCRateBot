@@ -15,6 +15,9 @@ class CreateTelegramBotConfigsTable extends Migration
     {
         Schema::create('telegram_bot_configs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('default_currency');
+            $table->string('telegram_user_name')->unique();
+            $table->string('telegram_user_id')->unique();
             $table->timestamps();
         });
     }

@@ -19,4 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/bot-config', 'ConfigBotController@edit')->name('bot-config');
+
+Route::get('/bot-config-create', 'ConfigBotController@create')->name('bot-config.create');
 //Route::post('/{token}/webhook', 'TelegramWebhookController@process')->name('telegramwebhook');
