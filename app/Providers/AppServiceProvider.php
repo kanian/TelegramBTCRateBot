@@ -34,10 +34,10 @@ class AppServiceProvider extends ServiceProvider
         // We don't want the webhook to be registered to Telegram everytime we get
         // an instance of this service
         
-        /*$this->app->singleton('App\Adapters\TelegramWebHookAdapter', function($app)
+        $this->app->singleton('App\Adapters\TelegramWebHookAdapter', function($app)
         {
             return new \App\Adapters\TelegramWebHookAdapter();
-        });*/
+        });
         
         // Let's not recreate the telegram api object everytime we need it
         $this->app->singleton('App\Adapters\TelegramBotApiAdapter', function($app)
@@ -48,10 +48,10 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Adapters\CommandBusAdapter();
         });
-        $this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
+        /*$this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
         {
             return new \App\Adapters\TelegramManualUpdateAdapter();
-        });
+        });*/
         $this->app->singleton('App\Commands\StartCommand', function($app)
         {
             return new \App\Commands\StartCommand();
@@ -59,6 +59,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Commands\GetUserIDCommand', function($app)
         {
             return new \App\Commands\GetUserIDCommand();
+        });
+        $this->app->singleton('App\Commands\CommandParsers\CommandParser', function($app)
+        {
+            return new \App\Commands\CommandParsers\CommandParser();
         });
     }
 }
