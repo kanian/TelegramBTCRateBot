@@ -31,7 +31,8 @@ class CommandParser {
 
         if ($webhook) {
             $update = $telegram->getWebhookUpdates();
-            $this->processCommand($update);
+            if($update !== NULL)
+                $this->processCommand($update);
 
             return $update;
         }
