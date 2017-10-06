@@ -21,7 +21,7 @@ class TelegramWebHookAdapter {
         if(!TelegramWebHookAdapter::$webhook_is_set){
           $response = $telegram->setWebhook([
           'url' => TelegramWebHookAdapter::$webhook,
-          'certificate' => '/etc/ssl/crt/35_176_171_82.crt'
+          'certificate' => '/etc/ssl/crt/jsutfortelegram.pem'
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
         } 
