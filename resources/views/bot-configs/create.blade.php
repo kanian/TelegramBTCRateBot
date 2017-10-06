@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Configure Your Bot</div>
                     <div class="panel-body">
-                        <a href="{{ url('/bot-configs') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/home') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,7 +21,7 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/bot-configs', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::open(['url' => '/bot-config/'.$form_action, 'class' => 'form-horizontal', 'files' => true]) !!}
 
                         @include ('bot-configs.form')
 

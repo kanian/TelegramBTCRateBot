@@ -48,7 +48,7 @@ class ConfigBotController extends Controller
      */
     public function create()
     {
-        return view('bot-configs.create');
+        return view('bot-configs.create',['form_action'=>'store']);
     }
 
     /**
@@ -60,14 +60,11 @@ class ConfigBotController extends Controller
      */
     public function store(Request $request)
     {
-        
         $requestData = $request->all();
-        
-        TelegramBotConfig::create($requestData);
-
-        Session::flash('flash_message', 'TelegramBotConfig added!');
-
-        return redirect('bot-configs');
+        $requestData['user_id'] = Auth::user()->id;
+        $saved =  \App\TelegramBotConfig::create($requestData);
+        Session::flash('flash_message', 'Configuration saved!');
+        return redirect('bot-config/'.$saved->id.'/edit');
     }
 
     /**
@@ -96,11 +93,12 @@ class ConfigBotController extends Controller
         $user = Auth::user();
         // The user might be 
         if($id == -1){
-            return redirect('bot-config-create');     
+            return redirect('bot-config/create');     
         }
         $botconfig = TelegramBotConfig::findOrFail($id);
-
-        return view('bot-configs.edit', compact('botconfig'));
+        
+        $form_action = 'update';
+        return view('bot-configs.edit', compact('botconfig','form_action'));
     }
 
     /**
@@ -121,7 +119,7 @@ class ConfigBotController extends Controller
 
         Session::flash('flash_message', 'TelegramBotConfig updated!');
 
-        return redirect('bot-configs@edit');
+        return redirect('bot-config/'.$saved->id.'/edit');
     }
 
     /**
