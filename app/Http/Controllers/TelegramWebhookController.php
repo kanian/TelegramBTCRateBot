@@ -25,10 +25,10 @@ class TelegramWebhookController extends Controller {
      * @return \Illuminate\Http\Response 
      */
     public function process($token){
-        /*if($token !== TELEGRAM_BOT_TOKEN)
+        if($token !== TELEGRAM_BOT_TOKEN)
             return 'false';
-        */
-        //app('App\Commands\CommandParsers\CommandParser')->processUpdates(true);
+        
+        app('App\Commands\CommandParsers\CommandParser')->processUpdates(true);
         //$update = $telegram->getWebhookUpdates();
         //$update = $telegram->commandsHandler(true);
         
