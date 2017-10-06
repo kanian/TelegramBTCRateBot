@@ -24,7 +24,7 @@ class TelegramWebHookAdapter {
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
         } */
-        print_r('https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook');
+        print_r('https://'.HTTP_HOST.WEBHOOK_ROUTE);
     }
     
     public function removeWebhook(){
