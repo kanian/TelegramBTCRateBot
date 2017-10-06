@@ -20,7 +20,7 @@ class TelegramWebHookAdapter {
         if(!TelegramWebHookAdapter::$webhook_is_set){
           $response = $telegram->setWebhook([
           'url' => 'https://'.HTTP_HOST.WEBHOOK_ROUTE.'/webhook',
-          'certificate' => '/etc/ssl/crt/btcratebot.crt'
+          'certificate' => '/etc/ssl/crt/35_176_171_82.crt'
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
         } 
