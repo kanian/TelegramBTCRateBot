@@ -6,7 +6,7 @@ for(var i=0;i<_curArray.length;i++){
                 
 whenDocumentReadyDo(function(){
     console.log(ar);
-    var input = document.querySelector('input[name="defaultCurrency"]');
+    var input = document.querySelector('input[name="default_currency"]');
     new autoComplete({
         selector: input,
         minChars: 2,

@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit botConfig #{{ $botconfig->id }}</div>
                     <div class="panel-body">
-                        <a href="{{ url('/bot-configs') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/home') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -23,7 +23,7 @@
 
                         {!! Form::model($botconfig, [
                             'method' => 'PATCH',
-                            'url' => ['/bot-configs', $botconfig->id],
+                            'url' => ['/bot-config/'.$botconfig->id.'/'.$form_action],
                             'class' => 'form-horizontal',
                             'files' => true
                         ]) !!}

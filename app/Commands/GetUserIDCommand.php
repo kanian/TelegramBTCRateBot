@@ -26,14 +26,20 @@ class GetUserIDCommand extends TelegramBotCommand {
     public function handle($chat_id)
     //public function handle($parameters)
     {
-        $user_id = Auth::user()->id;
+        $config = \App\TelegramBotConfig::where('user_id', Auth::user()->id)->get()[0];
          // Update the chat status to typing...
         $this->replyWithChatAction(['chat_id' => $chat_id, 'action' => Actions::TYPING]);
+        if($config->telegram_user_id===NULL){
+            $text = "Please follow these instructions...";
+        }
+        $text = $config->telegram_user_id===NULL 
+                ? "Please follow these instructions..."
+                : $config->telegram_user_id;
         
         try{
             $this->replyWithMessage([
             'chat_id' => $chat_id,
-            'text' => $user_id, 
+            'text' => $text, 
             //'chat_id' => $chat_id])
             ]);
         } catch (GuzzleHttp\Exception\ClientException $ex) {

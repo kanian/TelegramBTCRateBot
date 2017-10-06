@@ -10,8 +10,8 @@
                     <div class="panel-heading">botConfig {{ $botconfig->id }}</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('/bot-configs') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/bot-configs/' . $botconfig->id . '/edit') }}" title="Edit botConfig"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/home') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/bot-config/' . $botconfig->id . '/edit') }}" title="Edit botConfig"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['botconfigs', $botconfig->id],

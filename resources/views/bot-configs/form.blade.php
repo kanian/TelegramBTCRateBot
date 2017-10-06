@@ -1,20 +1,20 @@
-<div class="form-group {{ $errors->has('defaultCurrency') ? 'has-error' : ''}}">
-    {!! Form::label('defaultCurrency', 'Default Currency', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group {{ $errors->has('default_urrency') ? 'has-error' : ''}}">
+    {!! Form::label('default_currency', 'Default Currency', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('defaultCurrency', null, ['type'=>'search', 'class' => 'form-control typeahead-currency', 'autocomplete'=>'off']) !!}
-        {!! $errors->first('defaultCurrency', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('default_currency', null, ['type'=>'search', 'class' => 'form-control typeahead-currency', 'autocomplete'=>'off']) !!}
+        {!! $errors->first('default_currency', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('telegramUserName') ? 'has-error' : ''}}">
-    {!! Form::label('telegramUserName', 'Telegram Username', ['class' => 'col-md-4 control-label']) !!}
+</div><div class="form-group {{ $errors->has('telegram_user_name') ? 'has-error' : ''}}">
+    {!! Form::label('telegram_user_name', 'Telegram Username', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6" >
-        {!! Form::text('telegramUserName', null, ['class' => 'form-control', 'placeholder'=>"Enter @your_telegram_username here"]) !!}
-        {!! $errors->first('telegramUserName', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('telegram_user_name', null, ['class' => 'form-control', 'placeholder'=>"Enter your_telegram_username here"]) !!}
+        {!! $errors->first('telegram_user_name', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('telegramUserId') ? 'has-error' : ''}}">
-    {!! Form::label('telegramUserId', 'Telegram User ID', ['class' => 'col-md-4 control-label']) !!}
+</div><div class="form-group {{ $errors->has('telegram_user_id') ? 'has-error' : ''}}">
+    {!! Form::label('telegram_user_id', 'Telegram User ID', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6" >
-        {!! Form::text('telegramUserId', null, ['class' => 'form-control', 'placeholder'=>"Send /start command and I will collect User Id for you", 'disabled'=>'disabled']) !!}
-        {!! $errors->first('telegramUserId', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('telegram_user_id', null, ['class' => 'form-control', 'placeholder'=>"Send /start command and I will collect User Id for you", 'disabled'=>'disabled']) !!}
+        {!! $errors->first('telegram_user_id', '<p class="help-block">:message</p>') !!}
         
     </div>
     <span data-toggle="tooltip" title="Hooray!"  class="glyphicon glyphicon-info-sign"></span>

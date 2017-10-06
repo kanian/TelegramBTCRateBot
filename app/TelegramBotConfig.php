@@ -12,26 +12,43 @@ class TelegramBotConfig extends Model
     *
     * @var array
     */
-    public $defaultCurrency;
+    public $default_currency;
     /**
      * The Telegram username of the user
      *
      * @var array
      */
-    public $telegramUserName;
+    public $telegram_user_name;
     /**
      * The Telegram user_id of the user
      *
      * @var array
      */
-    public $telegramUserId;
+    public $telegram_user_id;
     
     /**
      * The User id (Foreign key)
      * 
      * @var string 
      */
-    public $userId;
+    public $user_id;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'default_currency', 'telegram_user_name', 'telegram_user_id','user_id'
+    ];
+    
+    /*protected $visible  = [
+        'default_currency', 'telegram_user_name', 'telegram_user_id','user_id'
+    ];*/
+    
+    public function getTelegramUserName(){
+        return $this->telegram_user_name;
+    }
      /**
      * Get the user that owns this configuration.
      */
@@ -39,5 +56,4 @@ class TelegramBotConfig extends Model
     {
         return $this->belongsTo('App\User');
     }
-    
 }

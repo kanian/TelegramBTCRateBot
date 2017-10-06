@@ -40,10 +40,17 @@ class HomeController extends Controller
     }
     
     private function processUpdates(){
-        app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
+        ////app('App\Adapters\TelegramManualUpdateAdapter')->getUpdates();
+        
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         $updates = $telegram->getUpdates();
-        //print_r($updates) . '\n';
+
+        event(new \App\Events\UpdatesWereReceived(collect($updates)->map(function ($item, $key) {
+                        
+                        return $item->getMessage()->getFrom();
+                    })));
+
+        ////print_r($updates) . '\n';
         $highestId = -1;
 
         foreach ($updates as $update) {
@@ -62,14 +69,7 @@ class HomeController extends Controller
             $params['limit'] = 1;
             $telegram->getUpdates($params);
         }
-        //print_r($updates[0]->getMessage()->get('entities'));
-        /*for($i = 0;$i< count($updates);$i++){
-            if($updates[$i]->has('message') && $updates[$i]->get('message')->has('entities')){
-                
-                $this->processCommand($updates[$i]);
-            }
-            
-        }*/
+        
     }
     
     private function processCommand($update) : bool{
