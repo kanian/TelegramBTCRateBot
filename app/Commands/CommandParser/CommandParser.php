@@ -72,6 +72,7 @@ class CommandParser {
      * @return bool
      */
     protected function processCommand($update) : bool{
+        print_r($update);
         $message = $update->get('message');
         $parts = explode(" ",$message->get('text'));
         
