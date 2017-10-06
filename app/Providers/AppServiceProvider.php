@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->singleton('App\Commands\CommandParsers\CommandParser', function($app)
         {
-            return new \App\Commands\CommandParsers\CommandParser();
+            return new \App\Commands\CommandParser\CommandParser();
         });
     }
 }

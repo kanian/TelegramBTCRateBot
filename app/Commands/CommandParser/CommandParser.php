@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace App\Commands\CommandParsers;
+namespace App\Commands\CommandParser;
 
 /**
  * Description of CommandParser
