@@ -24,7 +24,6 @@ class TelegramWebHookAdapter {
           'certificate' => '/etc/ssl/crt/35_176_171_82.crt'
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
-          //print_r(TelegramWebHookAdapter::$webhook);
         } 
        
     }
