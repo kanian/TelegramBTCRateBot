@@ -21,7 +21,8 @@ class TelegramWebHookAdapter {
         if(!TelegramWebHookAdapter::$webhook_is_set){
           $response = $telegram->setWebhook([
           'url' => TelegramWebHookAdapter::$webhook,
-          'certificate' => '/opt/lampstack-7.0.12-0/apache2/conf/patrickassoaadou_site.crt'
+          //'certificate' => '/opt/lampstack-7.0.12-0/apache2/conf/patrickassoaadou_site.crt'
+          'certificate' => 'patrickassoaadou_site.crt'
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
         } 

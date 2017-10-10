@@ -11,4 +11,5 @@ npm-debug.log
 yarn-error.log
 btcratebot
 btcratebot.crt
+patrickassoaadou_site.crt
 !/.env
