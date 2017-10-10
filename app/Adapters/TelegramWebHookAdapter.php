@@ -16,7 +16,6 @@ class TelegramWebHookAdapter {
     public function __construct() {
         $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
         TelegramWebHookAdapter::$webhook = 'https://'.HTTP_HOST.WEBHOOK_ROUTE;
-        dd(TelegramWebHookAdapter::$webhook);
         //$telegram->removeWebhook();
         // We are supplying a self-signed-certificate
         if(!TelegramWebHookAdapter::$webhook_is_set){
