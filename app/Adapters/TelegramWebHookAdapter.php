@@ -18,14 +18,14 @@ class TelegramWebHookAdapter {
         TelegramWebHookAdapter::$webhook = 'https://'.HTTP_HOST.WEBHOOK_ROUTE;
         //$telegram->removeWebhook();
         // We are supplying a self-signed-certificate
-        if(!TelegramWebHookAdapter::$webhook_is_set){
+        /*if(!TelegramWebHookAdapter::$webhook_is_set){
           $response = $telegram->setWebhook([
           'url' => TelegramWebHookAdapter::$webhook,
           'certificate' => '/etc/ssl/crt/jsutfortelegram.pem'
         ]);
           TelegramWebHookAdapter::$webhook_is_set= true;
         } 
-       
+       */
     }
     
     public function removeWebhook(){
