@@ -119,7 +119,7 @@ class ConfigBotController extends Controller
 
         Session::flash('flash_message', 'TelegramBotConfig updated!');
 
-        return redirect('bot-config/'.$saved->id.'/edit');
+        return redirect('bot-config/'.$id.'/edit');
     }
 
     /**
