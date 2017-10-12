@@ -50,7 +50,7 @@
 <script src="{{ asset('js/auto-complete.js') }}"></script>
 <script src="{{ asset('js/initiate-auto-complete.js') }}"></script>
 <script src="//code.jquery.com/jquery.js"></script>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 @endsection
 
