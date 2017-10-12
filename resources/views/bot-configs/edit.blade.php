@@ -1,5 +1,11 @@
 @extends('layouts.app')
-@include ('flash::message')
+
+@if(Session::has('flash_message'))
+<div class='alert alert-success'>
+    {{Session::get('flash_message')}}
+</div>
+@endif
+
 @section('content')
     <div class="container">
         <div class="row">
