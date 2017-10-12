@@ -2,7 +2,7 @@
 
 @if(Session::has('flash_message'))
 <div class='alert alert-success'>
-    <button type="button" class="close" aria-label="Close">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
     </button>
     {{Session::get('flash_message')}}
