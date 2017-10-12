@@ -7,6 +7,9 @@ for(var i=0;i<_curArray.length;i++){
 whenDocumentReadyDo(function(){
     console.log(ar);
     var input = document.querySelector('input[name="default_currency"]');
+    if(input === null || typeof input === 'undefined'){
+        return;
+    }
     new autoComplete({
         selector: input,
         minChars: 2,
