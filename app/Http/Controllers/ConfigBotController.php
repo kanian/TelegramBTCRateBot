@@ -93,7 +93,7 @@ class ConfigBotController extends Controller
         $user = Auth::user();
         // The user might be 
         if($id == -1){
-            return redirect('bot-config/create');     
+            return redirect()->route('bot-config.create');    
         }
         $botconfig = TelegramBotConfig::findOrFail($id);
         
