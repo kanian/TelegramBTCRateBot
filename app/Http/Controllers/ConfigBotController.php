@@ -117,7 +117,7 @@ class ConfigBotController extends Controller
         $botconfig = TelegramBotConfig::findOrFail($id);
         $botconfig->update($requestData);
 
-        Session::flash('flash_message', 'TelegramBotConfig updated!');
+        Session::flash('flash_message', 'Bot configuration updated!');
 
         return redirect('bot-config/'.$id.'/edit');
     }

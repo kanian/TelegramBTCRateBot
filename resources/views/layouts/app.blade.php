@@ -81,8 +81,6 @@
     <!-- Scripts -->
     
     <script src="{{ asset('js/app.js') }}"></script>  
-    <script src="{{ asset('js/utils.js') }}"></script>
-    <script src="{{ asset('js/auto-complete.js') }}"></script>
-    <script src="{{ asset('js/initiate-auto-complete.js') }}"></script>
+    
 </body>
 </html>

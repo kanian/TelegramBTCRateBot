@@ -2,6 +2,26 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Adapters/TelegramWebHookAdapter.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/database/migrations/2017_10_04_213810_alter_telegram_bot_configs_table_telegram_user_id.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/database/migrations/2017_09_30_115401_create_telegram_bot_configs_table.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Http/Controllers/ConfigBotController.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/database/migrations/2017_10_04_215227_alter_telegram_bot_configs_table_add_user_id_fk.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Adapters/TelegramManualUpdateAdapter.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/public/js/initiate-auto-complete.js</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Commands/CommandParser/CommandParser.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/resources/views/bot-configs/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/public/index.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Http/Controllers/HomeController.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/config/database.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Listeners/SaveTelegramUserID.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Providers/AppServiceProvider.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Commands/GetBTCEquivalentCommand.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/TelegramBTCRateBot/app/Http/Controllers/TelegramWebhookController.php</file>
+        </group>
     </open-files>
 </project-private>

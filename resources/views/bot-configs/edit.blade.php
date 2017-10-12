@@ -2,6 +2,9 @@
 
 @if(Session::has('flash_message'))
 <div class='alert alert-success'>
+    <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
     {{Session::get('flash_message')}}
 </div>
 @endif
@@ -43,4 +46,11 @@
             </div>
         </div>
     </div>
+<script src="{{ asset('js/utils.js') }}"></script>
+<script src="{{ asset('js/auto-complete.js') }}"></script>
+<script src="{{ asset('js/initiate-auto-complete.js') }}"></script>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+
 @endsection
+
