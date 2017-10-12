@@ -84,7 +84,7 @@
 
                 <div class="links">
                     @if(Auth::check())
-                    <a href="{{ url('bot-config/{id}/edit',[-1]) }}">{ Configure Your Bot }</a>
+                    <a href="{{ route('bot-config.edit', ['id' => -1]) }}">{ Configure Your Bot }</a>
                     @endif
                     
                 </div>
