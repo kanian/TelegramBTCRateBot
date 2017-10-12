@@ -39,7 +39,8 @@ class CommandParser {
         
         $updates = $telegram->getUpdates();
                 
-        // Let any listener know that we received updates
+        // Let any listener know that we received updates; 
+        // In our specifc case we are getting info about who send the message
         event(new \App\Events\UpdatesWereReceived(collect($updates)->map(function ($item, $key) { 
                         return $item->getMessage()->getFrom();
                     })));

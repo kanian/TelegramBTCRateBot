@@ -24,5 +24,4 @@ Route::get('/bot-config/{id?}/edit', 'ConfigBotController@edit')->name('bot-conf
 Route::patch('/bot-config/{id?}/update', 'ConfigBotController@update')->name('bot-config.update');
 Route::get('/bot-config/create', 'ConfigBotController@create')->name('bot-config.create');
 Route::post('/bot-config/store', 'ConfigBotController@store')->name('bot-config.store');
-//Route::post('/450338970:AAEw6b2YUpUIUSr72Cf8fuSVeqPq76cbDRo/webhook', 'TelegramWebhookController@process')->name('telegramwebhook');
 Route::post('/{token}/webhook', 'TelegramWebhookController@process')->name('telegramwebhook');

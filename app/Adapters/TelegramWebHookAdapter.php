@@ -13,21 +13,23 @@ class TelegramWebHookAdapter {
     
     public static $webhook_is_set = false;
     public static $webhook;
+    private static $telegram;
+    
     public function __construct() {
-        $telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
-        TelegramWebHookAdapter::$webhook = 'https://'.HTTP_HOST.WEBHOOK_ROUTE;
-        //$telegram->removeWebhook();
-        // We are supplying a self-signed-certificate
-        if(!TelegramWebHookAdapter::$webhook_is_set){
-          $response = $telegram->setWebhook([
-          'url' => TelegramWebHookAdapter::$webhook,
-        ]);
-          TelegramWebHookAdapter::$webhook_is_set= true;
-        } 
-       
+        TelegramWebHookAdapter::$telegram = app('App\Adapters\TelegramBotApiAdapter')->Instance();
+        TelegramWebHookAdapter::$webhook = 'https://'.HTTP_HOST.WEBHOOK_ROUTE;  
     }
     
     public function removeWebhook(){
-        $telegram->removeWebhook();
+        TelegramWebHookAdapter::$telegram->removeWebhook();
+    }
+    
+    public function setWebhook(){
+        if(!TelegramWebHookAdapter::$webhook_is_set){
+          $response = TelegramWebHookAdapter::$telegram->setWebhook([
+          'url' => TelegramWebHookAdapter::$webhook,
+        ]);
+          TelegramWebHookAdapter::$webhook_is_set= true;
+        }
     }
 }

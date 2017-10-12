@@ -20,13 +20,38 @@ class GetBTCEquivalentCommand extends TelegramBotCommand {
      */
     protected $description = "Get the equivalent in BTC for the currency amount; Ex: /getBTCEquivalent 30 USD";
     
+    /**
+     * Handle the command
+     * 
+     * @param type $argsArray
+     * @param type $retries
+     */
     public function handle($argsArray, $retries = 0) {
          
         $coindesk = app('App\Adapters\CoinDeskAdapter');
-        //$argsArray = explode(" ",$arguments);
         $amount = $argsArray[0];
-        $currency = $argsArray[1];
-         
+        
+        if(count($argsArray) === 2 && isset($argsArray[1]))
+        {
+            $currency = $argsArray[1];
+        }else{
+            //Let's get the user default currancy from his bot config
+            $sender = collect([$this->getUpdate()])
+                    ->map(function ($item, $key) { 
+                        return $item->getMessage()->getFrom();
+                    })
+                    ->first(function ($update, $key) {
+                        return array_key_exists('username', $update->toArray());
+                    });
+            if($sender !== NULL){
+                $username = sender['username'];
+                $config = \App\TelegramBotConfig::where('telegram_user_name',$username)->first();
+                $currency = $config->default_currency;
+            } else{
+                // There are no default currency set for this user; let's assume USD
+                $currency = 'USD';
+            }
+        }
         //get the chat id
         $chat_id = $this->getUpdate()->get('message')->get('chat')->get('id');
          

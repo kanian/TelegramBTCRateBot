@@ -39,6 +39,11 @@ class AppServiceProvider extends ServiceProvider
             return new \App\Adapters\TelegramWebHookAdapter();
         });
         
+        $this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
+        {
+            return new \App\Adapters\TelegramManualUpdateAdapter();
+        });
+        
         // Let's not recreate the telegram api object everytime we need it
         $this->app->singleton('App\Adapters\TelegramBotApiAdapter', function($app)
         {
@@ -48,10 +53,7 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Adapters\CommandBusAdapter();
         });
-        /*$this->app->singleton('App\Adapters\TelegramManualUpdateAdapter', function($app)
-        {
-            return new \App\Adapters\TelegramManualUpdateAdapter();
-        });*/
+        
         $this->app->singleton('App\Commands\StartCommand', function($app)
         {
             return new \App\Commands\StartCommand();
